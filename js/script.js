@@ -9,7 +9,7 @@ function getNumberOfRows() {
 function clearAllBoxes() {
     for (box of boxes) {
         box.classList.remove("box-hover");
-        console.log(box.classList);
+        // console.log(box.classList);
     }
 }
 
@@ -23,12 +23,30 @@ for (let i = 0; i < numberOfRows * numberOfRows; i++) {
     screen.appendChild(addBox);
 }
 
+function rainbowColor() {
+    for (box of boxes) {
+        // box.removeEventListener("mouseover", box.target.classList.add("box-hover"));
+
+        box.addEventListener("mouseover", function (box) {
+            // console.log(red, blue, green);
+            let red = Math.floor((Math.random() * 255));
+            let blue = Math.floor((Math.random() * 255));
+            let green = Math.floor((Math.random() * 255));
+            box.target.style.backgroundColor = `rgb(${red}, ${green}, ${green})`;
+        }
+        );
+    }
+}
+
+
 
 const boxes = Array.from(document.querySelectorAll(".box"));
-
 boxes.forEach(box => box.addEventListener("mouseover", box => box.target.classList.add("box-hover")));
 
 
-const clear = document.querySelector(".options button");
-
+const clear = document.querySelector(".options .clear");
 clear.addEventListener("click", clearAllBoxes);
+
+
+const rainbow = document.querySelector(".options .rainbow");
+rainbow.addEventListener("click", rainbowColor)
