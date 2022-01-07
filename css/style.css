@@ -43,7 +43,6 @@ body{
     border: 2px solid rgb(0, 0, 0);
     height: 650px;
     width: 650px;
-    margin-bottom: 20px;
     display: flex;
     flex-flow: row wrap;
 }
@@ -58,4 +57,9 @@ body{
 
 .clear{
     background-color: white;
+}
+
+button{
+    height: 50px;
+    width: 100px;
 }

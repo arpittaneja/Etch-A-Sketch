@@ -8,22 +8,13 @@ function getNumberOfRows() {
 
 function clearAllBoxes() {
     for (box of boxes) {
-        box.classList.remove("box-hover");
+        box.style.backgroundColor = "white";
         // console.log(box.classList);
     }
 }
 
-numberOfRows = 4;
-const screen = document.querySelector(".screen");
-for (let i = 0; i < numberOfRows * numberOfRows; i++) {
-    const addBox = document.createElement("div");
-    addBox.classList.add('box');
-    addBox.style.height = `calc(650px / ${numberOfRows})`;
-    addBox.style.width = `calc(650px / ${numberOfRows})`;
-    screen.appendChild(addBox);
-}
 
-function rainbowColor() {
+function rainbowColorAllBoxes() {
     for (box of boxes) {
         // box.removeEventListener("mouseover", box.target.classList.add("box-hover"));
 
@@ -32,16 +23,55 @@ function rainbowColor() {
             let red = Math.floor((Math.random() * 255));
             let blue = Math.floor((Math.random() * 255));
             let green = Math.floor((Math.random() * 255));
-            box.target.style.backgroundColor = `rgb(${red}, ${green}, ${green})`;
+            box.target.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
         }
         );
     }
 }
 
+function blackColorAllBoxes(box) {
+    for (box of boxes) {
+        box.addEventListener("mouseover", function (box) {
+            box.target.style.backgroundColor = "black";
+        });
+    }
+}
 
+function greyScaleAllBoxes() {
+    grey = 255;
+    for (box of boxes) {
+        box.addEventListener("mouseover", function (box) {
+            box.target.style.backgroundColor = `rgb(${grey}, ${grey}, ${grey})`;
+            if (grey > 0) {
+                grey -= 255 / 100;
+                grey = Math.floor(grey);
+            }
+            else {
+                grey = 0;
+            }
+        }
+        );
+    }
+}
+
+function createAllBoxes(numberOfRows, screen) {
+    for (let i = 0; i < numberOfRows * numberOfRows; i++) {
+        const addBox = document.createElement("div");
+        addBox.classList.add('box');
+        addBox.style.height = `calc(650px / ${numberOfRows})`;
+        addBox.style.width = `calc(650px / ${numberOfRows})`;
+        screen.appendChild(addBox);
+    }
+}
+
+//driver code
+numberOfRows = 10;
+const screen = document.querySelector(".screen");
+
+createAllBoxes(numberOfRows, screen)
 
 const boxes = Array.from(document.querySelectorAll(".box"));
-boxes.forEach(box => box.addEventListener("mouseover", box => box.target.classList.add("box-hover")));
+blackColorAllBoxes(boxes);
 
 
 const clear = document.querySelector(".options .clear");
@@ -49,4 +79,11 @@ clear.addEventListener("click", clearAllBoxes);
 
 
 const rainbow = document.querySelector(".options .rainbow");
-rainbow.addEventListener("click", rainbowColor)
+rainbow.addEventListener("click", rainbowColorAllBoxes);
+
+const black = document.querySelector(".options .black");
+black.addEventListener("click", blackColorAllBoxes);
+
+const greyScale = document.querySelector(".options .greyscale");
+
+greyScale.addEventListener("click", greyScaleAllBoxes);
