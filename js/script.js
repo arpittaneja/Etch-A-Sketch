@@ -29,7 +29,7 @@ function rainbowColorAllBoxes() {
     }
 }
 
-function blackColorAllBoxes(box) {
+function blackColorAllBoxes() {
     for (box of boxes) {
         box.addEventListener("mouseover", function (box) {
             box.target.style.backgroundColor = "black";
@@ -64,6 +64,15 @@ function createAllBoxes(numberOfRows, screen) {
     }
 }
 
+
+function eraseBoxes() {
+    for (box of boxes) {
+        box.addEventListener("mouseover", function (box) {
+            box.target.style.backgroundColor = "white";
+        });
+    }
+}
+
 //driver code
 numberOfRows = 10;
 const screen = document.querySelector(".screen");
@@ -87,3 +96,6 @@ black.addEventListener("click", blackColorAllBoxes);
 const greyScale = document.querySelector(".options .greyscale");
 
 greyScale.addEventListener("click", greyScaleAllBoxes);
+
+const eraser = document.querySelector(".options .eraser");
+eraser.addEventListener("click", eraseBoxes);
