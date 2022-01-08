@@ -10,7 +10,6 @@ body {
     padding: 0;
     color: white;
     background: radial-gradient(200% 80%, rgb(255, 255, 255), rgb(255, 244, 147));
-    /* background-color: black; */
 }
 
 body {
@@ -18,60 +17,51 @@ body {
     flex-flow: column wrap;
     justify-content: center;
     align-items: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
-.container {
+.gamebox {
     box-sizing: content-box;
-    border-radius: 50px;
+    position: relative;
     height: 780px;
     width: 900px;
+    border-radius: 50px;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-evenly;
     align-items: center;
     background-color: rgb(207, 31, 43);
-    position: relative;
     box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
-h1 {
+.gamebox h1 {
     margin: 0px auto;
     position: absolute;
     top: 40px;
-    left: 0;
-    right: 0;
-    text-align: center;
     font-family: 'Fugaz One', cursive;
     font-size: 48px;
-    /* display: none; */
 }
-
 
 .options {
     margin-top: 100px;
     display: flex;
     flex-flow: column wrap;
-    justify-content: space-evenly;
+    justify-content: space-between;
     width: auto;
-    height: inherit;
+    height: 600px;
     font-family: 'Hammersmith One', sans-serif;
     font-size: 20px;
 }
 
-.screen-container {
+.outer-container {
     width: 612px;
     height: 612px;
     margin-top: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
-.screen {
+.container {
     box-sizing: content-box;
     display: flex;
     flex-flow: row wrap;
@@ -81,13 +71,12 @@ h1 {
     border: 3px ridge rgb(71, 71, 71);
 }
 
-.screen:hover {
+.container:hover {
     border: 5px groove rgb(71, 71, 71);
-
 }
 
 .box {
-    border: 0.1px solid black;
+    border: 0.1px solid rgb(0, 0, 0);
     margin: 0px;
     padding: 0px;
     flex: 1 1 auto;
@@ -95,19 +84,12 @@ h1 {
 
 button {
     background: rgb(231, 225, 225);
+    position: relative;
     height: 90px;
     width: 90px;
     border-radius: 100%;
     border: none;
-    position: relative;
     box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
-    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset; */
-}
-
-p {
-    /* border: 1px solid black; */
-    margin: 10px 0;
-    color: inherit;
 }
 
 .button-and-text {
@@ -128,29 +110,21 @@ button:hover {
 .inner {
     color: rgb(207, 31, 43);
     position: absolute;
-    top: 5px;
+    top: 4px;
     margin: 0 auto;
     left: 0;
     right: 0;
-    text-align: center;
 }
 
 footer {
     position: fixed;
     font-size: 20px;
-    color: black;
     bottom: 0px;
-    /* border: 1px solid black; */
     height: 50px;
     width: 800px;
-    text-align: center;
     display: flex;
     justify-content: center;
     align-items: end;
-}
-
-span a {
-    text-decoration: none;
 }
 
 footer span {
@@ -161,13 +135,12 @@ footer span {
     transition: all .4s 2s;
 }
 
-footer:hover span {
-    opacity: 1;
-    transition: all .4s;
-}
-
 .heart{
     color: rgb(252, 80, 80);
+}
+
+footer span a {
+    text-decoration: none;
 }
 
 a:visited {
@@ -176,4 +149,9 @@ a:visited {
 
 a:hover {
     color: rgb(48, 161, 86);
+}
+
+footer:hover span {
+    opacity: 1;
+    transition: all .4s;
 }

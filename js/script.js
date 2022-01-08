@@ -1,7 +1,6 @@
-
 //asks user for grid size and returns the same
 function getNumberOfRows() {
-    let userInput = parseInt(prompt("Enter a size of grid!"));
+    let userInput = parseInt(prompt("Enter a size of grid!", 24));
     while (!userInput || userInput > 100 || userInput < 1) {
         userInput = parseInt(prompt("Invalid Value! Number should be between 1 and 100!"));
     }
@@ -33,7 +32,6 @@ function blackColorAllBoxes() {
 //fires when rainbow button is clicked, adds event listener to each small box, and when the same event is fired it changes bg to random color
 function rainbowColorAllBoxes() {
     for (box of boxes) {
-
         box.addEventListener("mouseover", function (box) {
             let red = Math.floor((Math.random() * 255));
             let blue = Math.floor((Math.random() * 255));
@@ -78,7 +76,6 @@ function eraseBoxes() {
     }
 }
 
-
 function makeNewScreen() {
     newSize = getNumberOfRows();
     while (screen.firstChild) {
@@ -89,42 +86,29 @@ function makeNewScreen() {
     blackColorAllBoxes(boxes);
 }
 
-// function appearFooter() {
-//     footer.style.display = "block";
-// }
-
 //driver code
-numberOfRows = 19;
+let numberOfRows = 19;
 
-const screen = document.querySelector(".screen");
-// console.log(screen);
+const screen = document.querySelector(".outer-container .container");
 createAllBoxes(numberOfRows, screen)
-
-
 
 let boxes = Array.from(document.querySelectorAll(".box"));
 blackColorAllBoxes(boxes);
+
+const black = document.querySelector(".options .black");
+black.addEventListener("click", blackColorAllBoxes);
+
+const rainbow = document.querySelector(".options .rainbow");
+rainbow.addEventListener("click", rainbowColorAllBoxes);
+
+const greyScale = document.querySelector(".options .greyscale");
+greyScale.addEventListener("click", greyScaleAllBoxes);
+
+const eraser = document.querySelector(".options .eraser");
+eraser.addEventListener("click", eraseBoxes);
 
 const resize = document.querySelector(".options .resize");
 newSize = resize.addEventListener("click", makeNewScreen);
 
 const clear = document.querySelector(".options .clear");
 clear.addEventListener("click", clearAllBoxes);
-
-
-const rainbow = document.querySelector(".options .rainbow");
-rainbow.addEventListener("click", rainbowColorAllBoxes);
-
-const black = document.querySelector(".options .black");
-black.addEventListener("click", blackColorAllBoxes);
-
-const greyScale = document.querySelector(".options .greyscale");
-
-greyScale.addEventListener("click", greyScaleAllBoxes);
-
-const eraser = document.querySelector(".options .eraser");
-eraser.addEventListener("click", eraseBoxes);
-
-// const footer = document.querySelector("footer");
-// console.log(footer);
-// footer.addEventListener("click", appearFooter);
