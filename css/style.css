@@ -1,7 +1,5 @@
 * {
     box-sizing: border-box;
-    margin: 0px;
-    padding: 0px;
 }
 
 html,
@@ -12,54 +10,49 @@ body {
     padding: 0;
 }
 
-body{
+body {
     border: 5px solid black;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.container{
-    border: 15px solid rgb(116, 238, 112);
+.container {
+    box-sizing: content-box;
+    border: 20px solid green;
     border-radius: 10%;
-    height: 790px;
-    width: 684px;
+    height: 700px;
+    width: 600px;
     display: flex;
     flex-flow: column nowrap;
-    justify-content: center;
-    align-items: end;
+    justify-content: space-between;
+    align-items: center;
+    align-content: flex-start;
 }
 
-.options{
+.options {
+    border: 1px solid black;
     display: flex;
-    justify-content: start;
-    border: 1px solid purple;
-    width: 650px;
-
+    justify-content: center;
+    width: 100%;
 }
 
-.screen{
+.screen {
     box-sizing: content-box;
-    border: 2px solid rgb(0, 0, 0);
-    height: 650px;
-    width: 650px;
+    border: 1px solid pink;
     display: flex;
     flex-flow: row wrap;
+    height: 600px;
+    width: 600px;
 }
 
-.box{
-    border: 1px solid black;
+.box {
+    border: 0.1px solid black;
+    margin: 0px;
+    padding: 0px;
 }
 
-.box-hover{
-    background-color: black;
-}
-
-.clear{
-    background-color: white;
-}
-
-button{
+button {
     height: 50px;
     width: 100px;
 }

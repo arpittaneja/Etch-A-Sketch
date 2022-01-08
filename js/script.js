@@ -1,3 +1,5 @@
+
+//asks user for grid size and returns the same
 function getNumberOfRows() {
     let userInput = parseInt(prompt("Enter a size of grid!"));
     while (!userInput || userInput > 100 || userInput < 1) {
@@ -6,20 +8,35 @@ function getNumberOfRows() {
     return userInput;
 }
 
-function clearAllBoxes() {
-    for (box of boxes) {
-        box.style.backgroundColor = "white";
-        // console.log(box.classList);
+//takes gridsize as input and creates a grid of that size
+function createAllBoxes(numberOfRows, screen) {
+    let boxWidth = (screen.clientWidth/numberOfRows);
+    let boxHeight = (screen.clientHeight / numberOfRows);
+    console.log(boxWidth);
+    console.log(boxHeight);
+    for (let i = 0; i < numberOfRows * numberOfRows; i++) {
+        const addBox = document.createElement("div");
+        addBox.classList.add('box');
+        addBox.style.height = `${(boxHeight)}px`;
+        addBox.style.width = `${(boxWidth)}px`;
+        screen.appendChild(addBox);
     }
 }
 
+//fires when black button is clicked, adds event listener to each small box, and when the same event is fired it changes bg to black
+function blackColorAllBoxes() {
+    for (box of boxes) {
+        box.addEventListener("mouseover", function (box) {
+            box.target.style.backgroundColor = "black";
+        });
+    }
+}
 
+//fires when rainbow button is clicked, adds event listener to each small box, and when the same event is fired it changes bg to random color
 function rainbowColorAllBoxes() {
     for (box of boxes) {
-        // box.removeEventListener("mouseover", box.target.classList.add("box-hover"));
 
         box.addEventListener("mouseover", function (box) {
-            // console.log(red, blue, green);
             let red = Math.floor((Math.random() * 255));
             let blue = Math.floor((Math.random() * 255));
             let green = Math.floor((Math.random() * 255));
@@ -29,14 +46,7 @@ function rainbowColorAllBoxes() {
     }
 }
 
-function blackColorAllBoxes() {
-    for (box of boxes) {
-        box.addEventListener("mouseover", function (box) {
-            box.target.style.backgroundColor = "black";
-        });
-    }
-}
-
+//fires when greyscale button is clicked, adds event listener to each small box, and when the same event is fired it changes bg to grey and other shades
 function greyScaleAllBoxes() {
     grey = 255;
     for (box of boxes) {
@@ -54,17 +64,14 @@ function greyScaleAllBoxes() {
     }
 }
 
-function createAllBoxes(numberOfRows, screen) {
-    for (let i = 0; i < numberOfRows * numberOfRows; i++) {
-        const addBox = document.createElement("div");
-        addBox.classList.add('box');
-        addBox.style.height = `calc(650px / ${numberOfRows})`;
-        addBox.style.width = `calc(650px / ${numberOfRows})`;
-        screen.appendChild(addBox);
+//fires when clear button is fired, it resets the bg of all small boxes to white
+function clearAllBoxes() {
+    for (box of boxes) {
+        box.style.backgroundColor = "white";
     }
 }
 
-
+//erases filled boxes when clear button is clicked
 function eraseBoxes() {
     for (box of boxes) {
         box.addEventListener("mouseover", function (box) {
@@ -73,15 +80,32 @@ function eraseBoxes() {
     }
 }
 
-//driver code
-numberOfRows = 10;
-const screen = document.querySelector(".screen");
 
+function makeNewScreen() {
+    newSize = getNumberOfRows();
+    while (screen.firstChild) {
+        screen.removeChild(screen.firstChild);
+    }
+    createAllBoxes(newSize, screen);
+    boxes = Array.from(document.querySelectorAll(".box"));
+    blackColorAllBoxes(boxes);
+}
+
+
+//driver code
+numberOfRows = getNumberOfRows();
+
+const screen = document.querySelector(".screen");
+// console.log(screen);
 createAllBoxes(numberOfRows, screen)
 
-const boxes = Array.from(document.querySelectorAll(".box"));
+
+
+let boxes = Array.from(document.querySelectorAll(".box"));
 blackColorAllBoxes(boxes);
 
+const resize = document.querySelector(".options .resize");
+newSize = resize.addEventListener("click", makeNewScreen);
 
 const clear = document.querySelector(".options .clear");
 clear.addEventListener("click", clearAllBoxes);
