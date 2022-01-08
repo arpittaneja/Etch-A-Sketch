@@ -1,4 +1,4 @@
-//asks user for grid size and returns the same
+//asks user for grid size and returns the same 
 function getNumberOfRows() {
     let userInput = parseInt(prompt("Enter a size of grid!"));
     while (!userInput || userInput > 100 || userInput < 1) {
