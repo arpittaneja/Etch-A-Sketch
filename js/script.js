@@ -89,6 +89,9 @@ function makeNewScreen() {
     blackColorAllBoxes(boxes);
 }
 
+// function appearFooter() {
+//     footer.style.display = "block";
+// }
 
 //driver code
 numberOfRows = 19;
@@ -121,3 +124,7 @@ greyScale.addEventListener("click", greyScaleAllBoxes);
 
 const eraser = document.querySelector(".options .eraser");
 eraser.addEventListener("click", eraseBoxes);
+
+// const footer = document.querySelector("footer");
+// console.log(footer);
+// footer.addEventListener("click", appearFooter);
