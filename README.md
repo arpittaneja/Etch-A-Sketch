@@ -1,2 +1,2 @@
 # Etch-A-Sketch
-Online Etch-A-Sketch silmulation made using HTML, CSS and vanilla JavaScript!
+Online Etch-A-Sketch simulation made using HTML, CSS and vanilla JavaScript!
