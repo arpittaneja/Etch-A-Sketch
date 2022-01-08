@@ -8,6 +8,7 @@ body {
     width: 100%;
     margin: 0;
     padding: 0;
+    color: white;
 }
 
 body {
@@ -33,7 +34,20 @@ body {
     align-items: center;
     /* margin-bottom: 40px; */
     background-color: rgb(207, 31, 43);
+    position: relative;
 }
+
+h1 {
+    margin: 0px auto;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-family: 'Fugaz One', cursive;
+    font-size: 48px;
+}
+
 
 .options {
     /* border: 1px solid black; */
@@ -48,12 +62,12 @@ body {
 .screen {
     margin-top: 80px;
     box-sizing: content-box;
-    border: 3px solid rgb(192, 68, 182);
+    /* border: 3px solid rgb(192, 68, 182); */
     display: flex;
     flex-flow: row wrap;
     height: 600px;
     width: 600px;
-    background-color: #fff;
+    background-color: white;
     /* flex: 1 1 auto */
 }
 
@@ -76,10 +90,10 @@ button {
 p {
     /* border: 1px solid black; */
     margin: 10px 0;
-    color: white;
+    color: inherit;
 }
 
-body div div div {
+.button-and-text {
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
@@ -92,7 +106,7 @@ button:active {
 
 }
 
-.inner{
+.inner {
     color: rgb(207, 31, 43);
     position: absolute;
     top: 5px;
