@@ -51,7 +51,7 @@ function greyScaleAllBoxes() {
         box.addEventListener("mouseover", function (box) {
             box.target.style.backgroundColor = `rgb(${grey}, ${grey}, ${grey})`;
             if (grey > 0) {
-                grey -= 255 / 100;
+                grey -= 255 / 200;
                 grey = Math.floor(grey);
             }
             else {
