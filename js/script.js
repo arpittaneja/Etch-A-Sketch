@@ -87,7 +87,7 @@ function makeNewScreen() {
 }
 
 //driver code
-let numberOfRows = 19;
+let numberOfRows = getNumberOfRows();
 
 const screen = document.querySelector(".outer-container .container");
 createAllBoxes(numberOfRows, screen)
