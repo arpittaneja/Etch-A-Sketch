@@ -12,8 +12,6 @@ function getNumberOfRows() {
 function createAllBoxes(numberOfRows, screen) {
     let boxWidth = (screen.clientWidth/numberOfRows);
     let boxHeight = (screen.clientHeight / numberOfRows);
-    console.log(boxWidth);
-    console.log(boxHeight);
     for (let i = 0; i < numberOfRows * numberOfRows; i++) {
         const addBox = document.createElement("div");
         addBox.classList.add('box');
@@ -93,7 +91,7 @@ function makeNewScreen() {
 
 
 //driver code
-numberOfRows = getNumberOfRows();
+numberOfRows = 19;
 
 const screen = document.querySelector(".screen");
 // console.log(screen);
