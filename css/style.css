@@ -98,10 +98,12 @@ button {
     align-items: center;
 }
 
-button:active {
+
+.pressed {
     background: rgb(255, 255, 255);
     transform: rotate(90deg);
 }
+
 
 button:hover {
     background-color: rgb(255, 255, 255);
