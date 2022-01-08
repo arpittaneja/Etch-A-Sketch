@@ -108,6 +108,7 @@ function eraseBoxes() {
     }
 }
 
+//creates a new screen by removing all boxes and creating new ones
 function makeNewScreen() {
     resize.classList.add("pressed");
     allButtonsNormalExcept(resize)
