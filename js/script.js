@@ -20,7 +20,7 @@ let buttons = [black, rainbow, greyScale, eraser, resize, clear];
 
 //asks user for grid size and returns the same 
 function getNumberOfRows() {
-    let userInput = parseInt(prompt("Enter a size of grid!"));
+    let userInput = parseInt(prompt("Enter a size of grid!(1-100)", 24));
     while (!userInput || userInput > 100 || userInput < 1) {
         userInput = parseInt(prompt("Invalid Value! Number should be between 1 and 100!"));
     }
