@@ -45,8 +45,8 @@ function blackColorAllBoxes() {
     black.classList.add("pressed");
     allButtonsNormalExcept(black)
     for (box of boxes) {
-        box.addEventListener("mouseover", function (box) {
-            box.target.style.backgroundColor = "black";
+        box.addEventListener("mouseover", function (e) {
+            e.target.style.backgroundColor = "black";
         });
     }
 }
@@ -56,11 +56,11 @@ function rainbowColorAllBoxes() {
     rainbow.classList.add("pressed");
     allButtonsNormalExcept(rainbow);
     for (box of boxes) {
-        box.addEventListener("mouseover", function (box) {
+        box.addEventListener("mouseover", function (e) {
             let red = Math.floor((Math.random() * 255));
             let blue = Math.floor((Math.random() * 255));
             let green = Math.floor((Math.random() * 255));
-            box.target.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+            e.target.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
         }
         );
     }
@@ -72,8 +72,8 @@ function greyScaleAllBoxes() {
     allButtonsNormalExcept(greyScale);
     grey = 255;
     for (box of boxes) {
-        box.addEventListener("mouseover", function (box) {
-            box.target.style.backgroundColor = `rgb(${grey}, ${grey}, ${grey})`;
+        box.addEventListener("mouseover", function (e) {
+            e.target.style.backgroundColor = `rgb(${grey}, ${grey}, ${grey})`;
             if (grey > 0) {
                 grey -= 255 / 200;
                 grey = Math.floor(grey);
@@ -102,8 +102,8 @@ function eraseBoxes() {
     eraser.classList.add("pressed");
     allButtonsNormalExcept(eraser);
     for (box of boxes) {
-        box.addEventListener("mouseover", function (box) {
-            box.target.style.backgroundColor = "white";
+        box.addEventListener("mouseover", function (e) {
+            e.target.style.backgroundColor = "white";
         });
     }
 }
