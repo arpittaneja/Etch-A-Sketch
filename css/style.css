@@ -63,8 +63,7 @@ body {
 
 .container {
     box-sizing: content-box;
-    display: flex;
-    flex-flow: row wrap;
+    display: grid;
     height: 600px;
     width: 600px;
     background-color: white;

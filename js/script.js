@@ -18,6 +18,7 @@ clear.addEventListener("click", clearAllBoxes);
 
 let buttons = [black, rainbow, greyScale, eraser, resize, clear];
 
+let container = document.querySelector(".container");
 //asks user for grid size and returns the same 
 function getNumberOfRows() {
     let userInput = parseInt(prompt("Enter a size of grid!(1-100)", 24));
@@ -29,13 +30,10 @@ function getNumberOfRows() {
 
 //takes gridsize as input and creates a grid of that size
 function createAllBoxes(numberOfRows, screen) {
-    let boxWidth = (screen.clientWidth / numberOfRows);
-    let boxHeight = (screen.clientHeight / numberOfRows);
     for (let i = 0; i < numberOfRows * numberOfRows; i++) {
         const addBox = document.createElement("div");
         addBox.classList.add('box');
-        addBox.style.height = `${(boxHeight)}px`;
-        addBox.style.width = `${(boxWidth)}px`;
+        container.style.gridTemplate = `repeat(${numberOfRows}, 1fr) / repeat(${numberOfRows}, 1fr)`;
         screen.appendChild(addBox);
     }
 }
