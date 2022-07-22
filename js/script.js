@@ -16,9 +16,10 @@ newSize = resize.addEventListener("click", makeNewScreen);
 const clear = document.querySelector(".options .clear");
 clear.addEventListener("click", clearAllBoxes);
 
-let buttons = [black, rainbow, greyScale, eraser, resize, clear];
+const container = document.querySelector(".container");
 
-let container = document.querySelector(".container");
+const buttons = [black, rainbow, greyScale, eraser, resize, clear];
+
 //asks user for grid size and returns the same 
 function getNumberOfRows() {
     let userInput = parseInt(prompt("Enter a size of grid!(1-100)", 24));
